@@ -3,7 +3,7 @@ requires = ["setuptools>=77.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["app"]
+packages = ["bonus_cli"]
 
 [project]
 name = "bonus-cli"
@@ -25,7 +25,7 @@ dev = [
 ]
 
 [project.scripts]
-bonus = "app.cli:main"
+bonus = "bonus_cli.cli:main"
 
 [tool.basedpyright]
 pythonVersion = "3.12"
@@ -33,7 +33,7 @@ typeCheckingMode = "strict"
 reportMissingImports = "error"
 reportMissingTypeStubs = "error"
 reportMissingModuleSource = "warning"
-include = ["app"]
+include = ["bonus_cli"]
 exclude = ["**/node_modules", "**/__pycache__", "venv", "**/tests"]
 
 [tool.ruff]
@@ -51,4 +51,4 @@ quote-style = "double"
 indent-style = "space"
 
 [tool.ruff.lint.isort]
-known-first-party = ["app"]
+known-first-party = ["bonus_cli"]

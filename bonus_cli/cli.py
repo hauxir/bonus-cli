@@ -6,8 +6,8 @@ import click
 from rich.console import Console
 from rich.table import Table
 
-from app import config
-from app.client import BonusClient
+from bonus_cli import config
+from bonus_cli.client import BonusClient
 
 console = Console()
 
