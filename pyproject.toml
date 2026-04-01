@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=77.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["app"]
+
+[project]
+name = "bonus-cli"
+version = "0.1.0"
+description = "CLI tool for interacting with Bónus grocery store (Iceland)"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = [
+    "httpx>=0.28.0",
+    "click>=8.1.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "basedpyright>=1.31.0",
+    "ruff>=0.8.0",
+    "pytest>=8.3.0",
+]
+
+[project.scripts]
+bonus = "app.cli:main"
+
+[tool.basedpyright]
+pythonVersion = "3.12"
+typeCheckingMode = "strict"
+reportMissingImports = "error"
+reportMissingTypeStubs = "error"
+reportMissingModuleSource = "warning"
+include = ["app"]
+exclude = ["**/node_modules", "**/__pycache__", "venv", "**/tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP", "N", "SIM", "TID", "RUF"]
+ignore = ["E501", "B008", "B904", "SIM108"]
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
